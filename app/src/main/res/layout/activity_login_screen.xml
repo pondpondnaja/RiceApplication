@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginScreen"
+    android:background="@color/login_screen">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/parent_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:background="@color/login"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:id="@+id/login_holder"
+            android:layout_width="300dp"
+            android:layout_height="340dp">
+
+            <TextView
+                android:id="@+id/banner"
+                android:text="@string/login_banner"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/login_banner"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/all_text_color"
+                android:gravity="center_vertical"
+                android:textAlignment="center"/>
+
+            <RelativeLayout
+                android:id="@+id/edit_text_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="80dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <EditText
+                    android:id="@+id/user_edit"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/user"/>
+
+                <EditText
+                    android:id="@+id/password_edit"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/user_edit"
+                    android:layout_height="50dp"
+                    android:inputType="textPassword"
+                    android:hint="@string/password"/>
+
+                <Button
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/login_banner"
+                    android:textSize="20sp"
+                    android:onClick="login_btn"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/login_banner"
+                    android:layout_below="@id/password_edit"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

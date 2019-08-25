@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="all_text_color">#000000</color>
+
+    <color name="sp_text">#FFFFFF</color>
+    <color name="sp_screen">#000000</color>
+    <color name="alltextcolor">#000000</color>
+    <color name="text_inside_backgound">#FFFFFF</color>
+    <color name="borderColor">#000000</color>
+
+    <color name="login_screen">#FFA8C8</color>
+    <color name="login_banner">#FC77A4</color>
+    <color name="login">#FFFFFF</color>
+</resources>
