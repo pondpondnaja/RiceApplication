@@ -25,8 +25,7 @@ public class TimePickerFragment extends AppCompatDialogFragment implements TimeP
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
-        return new TimePickerDialog(getActivity(), this, hour, minute,
-                DateFormat.is24HourFormat(getActivity()));
+        return new TimePickerDialog(getActivity(), this, hour, minute,DateFormat.is24HourFormat(getActivity()));
     }
 
     @Override
@@ -34,7 +33,7 @@ public class TimePickerFragment extends AppCompatDialogFragment implements TimeP
         c.set(Calendar.HOUR_OF_DAY,hour);
         c.set(Calendar.MINUTE,minute);
 
-        String selectedTime = new SimpleDateFormat("HH:mm", Locale.ENGLISH).format(c.getTime());
+        String selectedTime = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(c.getTime());
         Log.d(TAG, "onDateSet: " + selectedTime);
         getTargetFragment().onActivityResult(
                 getTargetRequestCode(),
