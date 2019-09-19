@@ -1,5 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/date_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="วัน / เดือน / ปี"
+            android:textSize="23sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/date_edit_3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:ems="20"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/date_3"
+            android:textColor="@color/alltextcolor"
+            android:hint="@string/hint_1"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"/>
+
+        <TextView
+            android:id="@+id/Responsible_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หัวหน้าผู้รับผิดชอบ"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/date_3"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/Responsible_person_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/date_edit_3"
+            android:layout_toRightOf="@id/Responsible_person"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/ProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ชื่อสินค้า"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/Responsible_person"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/ProductName_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/Responsible_person_edit"
+            android:layout_toRightOf="@id/ProductName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/Size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ขนาด(mm)"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/ProductName"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/Size_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/ProductName_edit"
+            android:layout_toRightOf="@id/Size"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/Weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="น้ำหนักช่าง(กรัม)"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/Size"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/Weight_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/Size"
+            android:layout_toRightOf="@id/Weight"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/time_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="เริ่มจับเวลา"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/Weight"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/time_start_edit_3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/Weight_edit"
+            android:layout_toRightOf="@id/time_3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:hint="@string/hint_2"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/time_done_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="เวลาจับเสร็จ"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/time_3"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/time_done_edit_3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/time_start_edit_3"
+            android:layout_toRightOf="@id/time_done_3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:hint="@string/hint_2"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="จำนวน(กระสอบ)"
+            android:textSize="23sp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/time_done_3"
+            android:textColor="@color/alltextcolor"/>
+
+        <EditText
+            android:id="@+id/total_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/time_done_edit_3"
+            android:layout_toRightOf="@id/total"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menu1_s31"
+            android:layout_below="@id/total"
+            android:textSize="25sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/text_inside_backgound"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:background="@color/colorPrimaryDark"/>
+
+        <EditText
+            android:id="@+id/note_edit_3"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/note"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:textAlignment="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/note_edit_3"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="clickBtnOK"
+            android:text="บันทึก"
+            />
+
+
+    </RelativeLayout>
+
+</ScrollView>

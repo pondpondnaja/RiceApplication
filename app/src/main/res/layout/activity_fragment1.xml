@@ -16,7 +16,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu1_s1"
+            android:text="วัน / เดือน / ปี"
             android:textSize="23sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/alltextcolor"/>
@@ -216,54 +216,32 @@
         <RadioGroup
             android:id="@+id/clean_edit"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:orientation="horizontal"
             android:textAlignment="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:layout_toRightOf="@id/clean"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/engin_status"
             android:layout_below="@id/howto">
 
             <RadioButton
-                android:id="@+id/radio_btn_5"
+                android:id="@+id/radio_btn_clean"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s12"
+                android:layout_height="30dp"
+                android:text="สะอาด"
                 android:textSize="20sp"/>
 
             <RadioButton
-                android:id="@+id/radio_btn_4"
+                android:id="@+id/radio_btn_unclean"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s13"
+                android:layout_height="30dp"
+                android:text="ไม่สะอาด"
                 android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/radio_btn_3"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s14"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/radio_btn_2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s15"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/radio_btn_1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s16"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="20dp"/>
 
         </RadioGroup>
+
+
 
         <TextView
             android:id="@+id/engin_status"
@@ -359,7 +337,7 @@
             android:id="@+id/ta_krang_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu1_s24"
+            android:text="@string/menu1_s10"
             android:layout_below="@id/ta_krang"
             android:textSize="23sp"
             android:textColor="@color/alltextcolor"
@@ -368,52 +346,28 @@
         <RadioGroup
             android:id="@+id/ta_krang_clean_edit"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:orientation="horizontal"
             android:textAlignment="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:layout_toRightOf="@id/ta_krang_clean"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/engin_status"
             android:layout_below="@id/ta_krang">
 
             <RadioButton
-                android:id="@+id/ta_radio_btn_5"
+                android:id="@+id/radio_ta_krang_btn_clean"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s12"
+                android:layout_height="30dp"
+                android:text="สะอาด"
                 android:textSize="20sp"/>
 
             <RadioButton
-                android:id="@+id/ta_radio_btn_4"
+                android:id="@+id/radio_ta_krang_btn_unclean"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s13"
+                android:layout_height="30dp"
+                android:text="ไม่สะอาด"
                 android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/ta_radio_btn_3"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s14"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/ta_radio_btn_2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s15"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
-
-            <RadioButton
-                android:id="@+id/ta_radio_btn_1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/menu1_s16"
-                android:textSize="20sp"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="20dp"/>
 
         </RadioGroup>
 
@@ -465,17 +419,33 @@
             android:textColor="@color/alltextcolor"
             android:layout_marginTop="22dp"/>
 
-        <EditText
+        <RadioGroup
             android:id="@+id/grinding_edit"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/broken_edit"
-            android:layout_toRightOf="@id/type"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:background="@drawable/edittext_box"
-            android:textAlignment="center"/>
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="19dp"
+            android:layout_toRightOf="@id/broken"
+            android:layout_below="@id/broken">
+
+            <RadioButton
+                android:id="@+id/grinding_edit_g"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="ละเอียด"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/grinding_edit_ug"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="ไม่ละเอียด"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp"/>
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/flour"
@@ -597,6 +567,16 @@
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/note_edit"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="clickBtnOK"
+            android:text="บันทึก"
+            />
 
     </RelativeLayout>
 

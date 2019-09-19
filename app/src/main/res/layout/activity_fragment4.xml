@@ -13,21 +13,21 @@
         android:paddingRight="10dp">
 
         <TextView
-            android:id="@+id/date_2"
+            android:id="@+id/date_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s1"
+            android:text="วัน / เดือน / ปี"
             android:textSize="23sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/date_edit_2"
+            android:id="@+id/date_edit_4"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:ems="20"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/date_2"
+            android:layout_toRightOf="@id/date_4"
             android:textColor="@color/alltextcolor"
             android:hint="@string/hint_1"
             android:textAlignment="center"
@@ -35,21 +35,21 @@
             android:background="@drawable/edittext_box"/>
 
         <TextView
-            android:id="@+id/round"
+            android:id="@+id/rice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s2"
+            android:text="ข้าว/ก.ส."
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/date_2"
+            android:layout_below="@id/date_4"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/round_edit"
+            android:id="@+id/rice_edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/date_edit_2"
-            android:layout_toRightOf="@id/round"
+            android:layout_below="@id/date_4"
+            android:layout_toRightOf="@id/rice"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
@@ -57,21 +57,21 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/goods_name"
+            android:id="@+id/ProductName_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s3"
+            android:text="ชื่อสินค้า"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/round"
+            android:layout_below="@id/rice"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/goods_name_edit"
+            android:id="@+id/ProductName_edit_4"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/round_edit"
-            android:layout_toRightOf="@id/goods_name"
+            android:layout_below="@id/rice_edit"
+            android:layout_toRightOf="@id/ProductName_4"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
@@ -79,98 +79,36 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/date_4_lot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s4"
+            android:text="Lot.NO."
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/goods_name"
+            android:layout_below="@+id/ProductName_4"
             android:textColor="@color/alltextcolor"/>
 
-        <RadioGroup
-            android:id="@+id/type_edit"
+        <EditText
+            android:id="@+id/date_edit_4_lot"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
+            android:layout_height="40dp"
+            android:ems="20"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/ProductName_edit_4"
+            android:layout_toRightOf="@id/date_4_lot"
+            android:textColor="@color/alltextcolor"
+            android:hint="@string/hint_1"
             android:textAlignment="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_toRightOf="@id/type"
-            android:layout_below="@id/goods_name_edit">
-
-            <RadioButton
-                android:id="@+id/radio_btn_nomal"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/menu2_s5"
-                android:textSize="20sp"/>
-
-            <RadioButton
-                android:id="@+id/radio_btn_abnomal"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/menu2_s6"
-                android:textSize="20sp"
-                android:layout_marginLeft="40dp"/>
-
-        </RadioGroup>
+            android:textSize="20sp"
+            android:background="@drawable/edittext_box"
+            android:layout_marginTop="15dp" />
 
         <TextView
-            android:id="@+id/thickness"
+            android:id="@+id/packed_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s7"
-            android:layout_below="@id/type"
-            android:textSize="25sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textColor="@color/text_inside_backgound"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:background="@color/colorPrimaryDark"/>
-
-        <RadioGroup
-            android:id="@+id/thickness_edit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:textAlignment="center"
-            android:layout_marginTop="16dp"
-            android:layout_below="@id/thickness">
-
-            <RadioButton
-                android:id="@+id/thickness_edit_1"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/menu2_s8"
-                android:textSize="20sp"
-                android:layout_marginLeft="30dp"/>
-
-            <RadioButton
-                android:id="@+id/thickness_edit_2"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/menu2_s9"
-                android:textSize="20sp"
-                android:layout_marginLeft="40dp"/>
-
-            <RadioButton
-                android:id="@+id/thickness_edit_3"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/menu2_s10"
-                android:textSize="20sp"
-                android:layout_marginLeft="40dp"/>
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/steam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu2_s11"
-            android:layout_below="@id/thickness_edit"
+            android:text="บรรจุแล้ว"
+            android:layout_below="@id/date_4_lot"
             android:textSize="25sp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -180,57 +118,55 @@
             android:background="@color/colorPrimaryDark"/>
 
         <TextView
-            android:id="@+id/temperature"
+            android:id="@+id/manybox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s12"
+            android:text="จำนวนกล่อง"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/steam"
+            android:layout_below="@id/packed_4"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/temperature_edit"
+            android:id="@+id/manybox_edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/steam"
-            android:layout_toRightOf="@id/temperature"
+            android:layout_below="@id/packed_4"
+            android:layout_toRightOf="@id/manybox"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/rpm"
+            android:id="@+id/manysong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s13"
+            android:text="จำนวนซอง"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/temperature"
+            android:layout_below="@id/manybox"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/rpm_edit"
+            android:id="@+id/manysong_edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/temperature_edit"
-            android:layout_toRightOf="@id/rpm"
+            android:layout_below="@id/manybox_edit"
+            android:layout_toRightOf="@id/manysong"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/damp"
+            android:id="@+id/waiting_packing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s14"
-            android:layout_below="@id/rpm"
+            android:text="รอบรรจุ"
+            android:layout_below="@id/manysong_edit"
             android:textSize="25sp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -240,189 +176,143 @@
             android:background="@color/colorPrimaryDark"/>
 
         <TextView
-            android:id="@+id/temperature_2"
+            android:id="@+id/manybox_waiting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s15"
+            android:text="จำนวนกล่อง"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/damp"
+            android:layout_below="@id/waiting_packing"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/temperature_edit_2"
+            android:id="@+id/manybox_edit_waiting"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/damp"
-            android:layout_toRightOf="@id/temperature_2"
+            android:layout_below="@id/waiting_packing"
+            android:layout_toRightOf="@id/manybox_waiting"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/rpm_2"
+            android:id="@+id/manysong_waiting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s16"
+            android:text="จำนวนซอง"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/temperature_2"
+            android:layout_below="@id/manybox_waiting"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/rpm_2_edit"
+            android:id="@+id/manysong_edit_waiting"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/temperature_edit_2"
-            android:layout_toRightOf="@id/rpm_2"
+            android:layout_below="@id/manybox_edit_waiting"
+            android:layout_toRightOf="@id/manysong_waiting"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/time_fg_2_head"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu2_s17"
-            android:layout_below="@id/rpm_2"
-            android:textSize="25sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textColor="@color/text_inside_backgound"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:background="@color/colorPrimaryDark"/>
-
-        <TextView
-            android:id="@+id/time_start"
+            android:id="@+id/pang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s18"
+            android:text="แป้งเปื้อน"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/time_fg_2_head"
+            android:layout_below="@id/manysong_waiting"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/time_start_edit"
+            android:id="@+id/pang_edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/time_fg_2_head"
-            android:layout_toRightOf="@id/time_start"
+            android:layout_below="@id/manysong_edit_waiting"
+            android:layout_toRightOf="@id/pang"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:hint="@string/hint_2"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/time_done"
+            android:id="@+id/pang_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s19"
+            android:text="แป้งลอก"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/time_start"
+            android:layout_below="@id/pang"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/time_done_edit"
+            android:id="@+id/pang_edit_copy"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/time_start_edit"
-            android:layout_toRightOf="@id/time_done"
+            android:layout_below="@id/pang_edit"
+            android:layout_toRightOf="@id/pang_copy"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"
-            android:hint="@string/hint_2"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/how_many"
+            android:id="@+id/head_too"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s20"
+            android:text="หัวตู้"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/time_done"
+            android:layout_below="@id/pang_copy"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/how_many_edit"
+            android:id="@+id/head_edit_too"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/time_done_edit"
-            android:layout_toRightOf="@id/how_many"
+            android:layout_below="@id/pang_edit_copy"
+            android:layout_toRightOf="@id/head_too"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:hint="@string/menu2_s21"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/remaining_flour"
+            android:id="@+id/room_pack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s22"
+            android:text="ห้องแพ๊ค"
             android:textSize="23sp"
             android:layout_marginTop="22dp"
-            android:layout_below="@id/how_many"
+            android:layout_below="@id/head_too"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
-            android:id="@+id/remaining_flour_edit"
+            android:id="@+id/room_edit_pack"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/how_many_edit"
-            android:layout_toRightOf="@id/remaining_flour"
+            android:layout_below="@id/head_edit_too"
+            android:layout_toRightOf="@id/room_pack"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
-            android:hint="@string/menu2_s23"
-            android:textAlignment="center"
-            android:inputType="number"/>
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/supervisor"
+            android:id="@+id/note_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s24"
-            android:layout_below="@id/remaining_flour_edit"
-            android:textSize="25sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textColor="@color/text_inside_backgound"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:background="@color/colorPrimaryDark"/>
-
-        <EditText
-            android:id="@+id/supervisor_edit"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/supervisor"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:background="@drawable/edittext_box"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/note_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu2_s25"
-            android:layout_below="@id/supervisor_edit"
+            android:text="@string/menu1_s31"
+            android:layout_below="@id/room_pack"
             android:textSize="25sp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -432,10 +322,10 @@
             android:background="@color/colorPrimaryDark"/>
 
         <EditText
-            android:id="@+id/note_edit_2"
+            android:id="@+id/note_edit_4"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_below="@id/note_2"
+            android:layout_below="@id/note_4"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:textSize="20sp"
@@ -445,7 +335,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/note_edit_2"
+            android:layout_below="@+id/note_edit_4"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
             android:onClick="clickBtnOK"

@@ -68,6 +68,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbar.setTitle(tooltitle);
                 break;
 
+            case R.id.menu_no4:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment4()).addToBackStack(null).commit();
+                tooltitle = menuItem.getTitle().toString();
+                toolbar.setTitle(tooltitle);
+                break;
+
             case R.id.contact:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).addToBackStack(null).commit();
                 tooltitle = menuItem.getTitle().toString();

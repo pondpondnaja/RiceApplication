@@ -8,6 +8,12 @@
         android:title="@string/menu2"/>
     <item
         android:id="@+id/menu_no3"
+        android:title="บันทึกการจับเส้นเข้าตู้"/>
+    <item
+        android:id="@+id/menu_no4"
+        android:title="บรรจุ"/>
+    <item
+        android:id="@+id/menu_no5"
         android:title="Optional"/>
 
     <item
