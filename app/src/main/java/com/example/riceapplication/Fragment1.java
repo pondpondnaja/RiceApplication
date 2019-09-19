@@ -23,11 +23,11 @@ public class Fragment1 extends Fragment{
     public static final int TIME_REQUEST_CODE = 12;
     private Button submit_button_1;
     private RadioGroup clean_edit,engin_status_edit,notcorrect_edit,
-                       ta_krang_clean_edit,broken_edit,contamination_edit;
+                       ta_krang_clean_edit,broken_edit,contamination_edit,grinding_edit;
 
     private EditText deditText,teditText,textArea,typeEdit,
                      recipe_a_edit,recipe_b_edit,recipe_c_edit,recipe_d_edit,
-                     grinding_edit,color_edit,smell_edit;
+                     color_edit,smell_edit;
 
     private String วัน,เวลา,ประเภทสินค้า,A,B,C,D,การโม่_ความสะอาด,
                    การโม่_การเดินเครื่อง,การโม่_สิ่งผิดปกติ,ตะแกรง_ความสะอาด,
@@ -46,7 +46,6 @@ public class Fragment1 extends Fragment{
         teditText = view.findViewById(R.id.time_edit);
         textArea  = view.findViewById(R.id.note_edit);
         typeEdit = view.findViewById(R.id.type_edit);
-        grinding_edit = view.findViewById(R.id.grinding_edit);
         color_edit = view.findViewById(R.id.color_edit);
         smell_edit = view.findViewById(R.id.smell_edit);
         recipe_a_edit = view.findViewById(R.id.recipe_a_edit);
@@ -61,6 +60,7 @@ public class Fragment1 extends Fragment{
         ta_krang_clean_edit = view.findViewById(R.id.ta_krang_clean_edit);
         broken_edit = view.findViewById(R.id.broken_edit);
         contamination_edit = view.findViewById(R.id.contamination_edit);
+        grinding_edit = view.findViewById(R.id.grinding_edit);
 
         //Button
         submit_button_1 = view.findViewById(R.id.submit_button_1);
@@ -99,7 +99,7 @@ public class Fragment1 extends Fragment{
         });
 
         submit_button_1.setOnClickListener(new View.OnClickListener() {
-            String mo_clean,mo_engin,mo_issue,ta_clean,ta_broke,flour_con;
+            String mo_clean,mo_engin,mo_issue,ta_clean,ta_broke,flour_con,grind_value;
             @Override
             public void onClick(final View view){
                 if(clean_edit.getCheckedRadioButtonId()!= -1){
@@ -144,6 +144,13 @@ public class Fragment1 extends Fragment{
                     RadioButton btn = (RadioButton) contamination_edit.getChildAt(radioId);
                     flour_con = (String) btn.getText();
                 }
+                if(grinding_edit.getCheckedRadioButtonId()!= -1){
+                    int id= grinding_edit.getCheckedRadioButtonId();
+                    View radioButton = grinding_edit.findViewById(id);
+                    int radioId = grinding_edit.indexOfChild(radioButton);
+                    RadioButton btn = (RadioButton) grinding_edit.getChildAt(radioId);
+                    grind_value = (String) btn.getText();
+                }
 
                 Log.d(TAG, "onClick: "+mo_clean);
                 Log.d(TAG, "onClick: "+mo_engin);
@@ -151,6 +158,7 @@ public class Fragment1 extends Fragment{
                 Log.d(TAG, "onClick: "+ta_clean);
                 Log.d(TAG, "onClick: "+ta_broke);
                 Log.d(TAG, "onClick: "+flour_con);
+                Log.d(TAG, "onClick: "+grind_value);
 
                 วัน                = deditText.getText().toString();
                 เวลา              = teditText.getText().toString();
@@ -159,7 +167,6 @@ public class Fragment1 extends Fragment{
                 B                 = recipe_b_edit.getText().toString();
                 C                 = recipe_c_edit.getText().toString();
                 D                 = recipe_d_edit.getText().toString();
-                ตะแกรง_ความละเอียด = grinding_edit.getText().toString();
                 น้ำแป้ง_สี           = color_edit.getText().toString();
                 น้ำแป้ง_กลิ่น         = smell_edit.getText().toString();
                 หมายเหตุ           = textArea.getText().toString();
@@ -177,15 +184,15 @@ public class Fragment1 extends Fragment{
                 intent.putExtra("การโม่_สิ่งผิดปกติ", mo_issue);
                 intent.putExtra("ตะแกรง_ความสะอาด", ta_clean);
                 intent.putExtra("ตะแกรง_รอยชำรุด", ta_broke);
-                intent.putExtra("ตะแกรง_ความละเอียด", ตะแกรง_ความละเอียด);
+                intent.putExtra("ตะแกรง_ความละเอียด", grind_value);
                 intent.putExtra("น้ำแป้ง_สิ่งเจือปน", flour_con);
                 intent.putExtra("น้ำแป้ง_สี", น้ำแป้ง_สี);
                 intent.putExtra("น้ำแป้ง_กลิ่น", น้ำแป้ง_กลิ่น);
                 intent.putExtra("หมายเหตุ", หมายเหตุ);
-
                 startActivity(intent);
             }
         });
+
         return view;
     }
 

@@ -95,8 +95,8 @@ public class Fragment1Validation extends AppCompatActivity {
                 ri = extras.getString("การโม่_สิ่งผิดปกติ");
                 tc = extras.getString("ตะแกรง_ความสะอาด");
                 tb = extras.getString("ตะแกรง_รอยชำรุด");
-                con = extras.getString("ตะแกรง_ความละเอียด");
-                ge = extras.getString("น้ำแป้ง_สิ่งเจือปน");
+                con = extras.getString("น้ำแป้ง_สิ่งเจือปน");
+                ge = extras.getString("ตะแกรง_ความละเอียด");
                 ce = extras.getString("น้ำแป้ง_สี");
                 se = extras.getString("น้ำแป้ง_กลิ่น");
                 note = extras.getString("หมายเหตุ");

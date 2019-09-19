@@ -375,7 +375,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
         <TextView
