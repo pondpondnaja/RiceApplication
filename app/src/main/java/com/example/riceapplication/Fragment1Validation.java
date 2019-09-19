@@ -30,7 +30,7 @@ public class Fragment1Validation extends AppCompatActivity {
                      radioButton_ta_krang,getRadioButton_ta_krang_broke,
                      radioButton_contamination_edit;
 
-    public static final String URL = "http://mungmee.ddns.net/kam/insertData.php";
+    public static final String URL = "http://192.168.64.2/insertData.php";
     String date,time,type,a,b,c,d,rc,re,ri,tc,tb,con,ge,ce,se,note;
 
     Button va_btn;
@@ -59,7 +59,6 @@ public class Fragment1Validation extends AppCompatActivity {
         color_edit = findViewById(R.id.color_va);
         smell_edit = findViewById(R.id.smell_va);
         textArea = findViewById(R.id.note_va);
-
 
         toolbar.setTitle("Validation");
 
@@ -151,7 +150,7 @@ public class Fragment1Validation extends AppCompatActivity {
     private void onButtonClick(){
         if(!date.isEmpty() && !time.isEmpty()){
             RequestQueue requestQueue = Volley.newRequestQueue(Fragment1Validation.this);
-            StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>(){
                 @Override
                 public void onResponse(String response) {
                     Log.d("onResponse",response.toString());

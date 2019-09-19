@@ -186,7 +186,6 @@ public class Fragment1 extends Fragment{
                 startActivity(intent);
             }
         });
-        
         return view;
     }
 
