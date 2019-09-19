@@ -92,5 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else {
             super.onBackPressed();
         }
+        if(fragmentManager.getBackStackEntryCount() == 0){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment1()).addToBackStack(null).commit();
+        }
     }
 }
