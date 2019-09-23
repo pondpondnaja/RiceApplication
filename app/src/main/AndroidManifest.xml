@@ -3,22 +3,19 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.riceapplication">
 
-    <dist:module dist:instant="true" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Fragment2Validation"></activity>
         <activity
             android:name=".LoginScreen"
-            android:theme="@style/AppTheme.noActionbar">
-        </activity>
-        <activity android:name=".MainActivity"/>
+            android:theme="@style/AppTheme.noActionbar"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.noActionbar">
@@ -28,7 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragment1Validation"/>
+        <activity android:name=".Fragment1Validation" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module dist:instant="true" />
 
 </manifest>

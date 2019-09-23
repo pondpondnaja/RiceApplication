@@ -421,8 +421,8 @@
             android:id="@+id/note_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu2_s25"
-            android:layout_below="@id/supervisor_edit"
+            android:text="@string/menu1_s31"
+            android:layout_below="@+id/supervisor_edit"
             android:textSize="25sp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -432,25 +432,34 @@
             android:background="@color/colorPrimaryDark"/>
 
         <EditText
-            android:id="@+id/note_edit_2"
+            android:id="@+id/note_2_edit"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@id/note_2"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:textSize="20sp"
+            android:inputType="text|textMultiLine"
             android:background="@drawable/edittext_box"
-            android:textAlignment="center"/>
+            android:gravity="top|left"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:scrollHorizontally="false"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/submit_button_2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/note_edit_2"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/note_2_edit"
             android:layout_centerHorizontal="true"
-            android:onClick="clickBtnOK"
-            android:text="บันทึก"
-            />
+            android:text="@string/btn_name"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="15dp"/>
 
     </RelativeLayout>
 
