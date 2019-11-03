@@ -27,8 +27,8 @@ public class Fragment2Validation extends AppCompatActivity {
             textArea2,temperature_edit,rpm_edit,getTemperature_edit,rpm_2_edit,
             how_many_edit,remaining_flour_edit,supervisor_edit,
             radioButton_type_2,radioButton_thickness;
-
-    public static final String URL = "http://172.22.0.203/insertData2.php";
+    public static final String TAG = "valid2";
+    public static final String URL = "http://192.168.64.2/insertData2.php";
     String date2,round2,good2,time_s,time_do,
             note2,temp_e,rpm_e,temp2_e,rpm2_e,how,rema,superv,
             r_type2,thick2;
@@ -87,7 +87,7 @@ public class Fragment2Validation extends AppCompatActivity {
                 temp_e = extras.getString("TEMP_STEAM");
                 rpm_e = extras.getString("SPEED_STEAM");
                 temp2_e = extras.getString("TEMP_DRY");
-                rpm2_e = extras.getString("SREED_DRY");
+                rpm2_e = extras.getString("SPEED_DRY");
                 time_s = extras.getString("REC_START");
                 time_do = extras.getString("REC_END");
                 how = extras.getString("QUAN");
@@ -104,7 +104,7 @@ public class Fragment2Validation extends AppCompatActivity {
             temp_e = (String) savedInstanceState.getSerializable("TEMP_STEAM");
             rpm_e = (String) savedInstanceState.getSerializable("SPEED_STEAM");
             temp2_e = (String) savedInstanceState.getSerializable("TEMP_DRY");
-            rpm2_e = (String) savedInstanceState.getSerializable("SREED_DRY");
+            rpm2_e = (String) savedInstanceState.getSerializable("SPEED_DRY");
             time_s = (String) savedInstanceState.getSerializable("REC_START");
             time_do = (String) savedInstanceState.getSerializable("REC_END");
             how = (String) savedInstanceState.getSerializable("QUAN");
@@ -128,6 +128,8 @@ public class Fragment2Validation extends AppCompatActivity {
         remaining_flour_edit.setText(rema);
         supervisor_edit.setText(superv);
         textArea2.setText(note2);
+
+        Log.d(TAG, "onCreate: "+r_type2);
 
         va2_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,12 +176,10 @@ public class Fragment2Validation extends AppCompatActivity {
                     params.put("PIECE", rema);
                     params.put("EMP_NAME", superv);
                     params.put("REC_PS", note2);
-
                     return params;
                 }
             };
             requestQueue.add(request);
         }
-
     }
 }

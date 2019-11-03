@@ -141,6 +141,8 @@ public class Fragment2 extends Fragment {
                 EMP_NAME           = supervisor_edit.getText().toString();
                 REC_PS             = textArea.getText().toString();
 
+                Log.d(TAG, "onClick: "+SREED_DRY);
+
                 Intent intent = new Intent(getContext(),Fragment2Validation.class);
                 intent.putExtra("DMY", DMY);
                 intent.putExtra("ROUND", ROUND);
@@ -150,7 +152,7 @@ public class Fragment2 extends Fragment {
                 intent.putExtra("TEMP_STEAM", TEMP_STEAM);
                 intent.putExtra("SPEED_STEAM", SPEED_STEAM);
                 intent.putExtra("TEMP_DRY", TEMP_DRY);
-                intent.putExtra("SREED_DRY", SREED_DRY);
+                intent.putExtra("SPEED_DRY", SREED_DRY);
                 intent.putExtra("REC_START", REC_START);
                 intent.putExtra("REC_END", REC_END);
                 intent.putExtra("QUAN", QUAN);

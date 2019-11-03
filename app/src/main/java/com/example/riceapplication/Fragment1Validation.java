@@ -30,7 +30,7 @@ public class Fragment1Validation extends AppCompatActivity {
                      radioButton_ta_krang,getRadioButton_ta_krang_broke,
                      radioButton_contamination_edit;
 
-    public static final String URL = "http://172.22.0.203/insertData.php";
+    public static final String URL = "http://192.168.64.2/insertData.php";
     String date,time,type,a,b,c,d,rc,re,ri,tc,tb,con,ge,ce,se,note;
 
     Button va_btn;
