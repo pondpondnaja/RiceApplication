@@ -33,7 +33,6 @@ public class LoginScreen extends AppCompatActivity{
     public static final String URL = "http://10.0.2.2:8080/rice_app/index.jsp";
     private String final_url;
     String user_inp,pass_inp,hash_pass;
-    private boolean login_status = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +64,7 @@ public class LoginScreen extends AppCompatActivity{
                     Log.d(TAG, "onClick: hash password : "+hash_pass);
                 } catch (NoSuchAlgorithmException e) {}
 
-                final_url = URL + "?user="+user_inp;
+                final_url = URL + "?user=" + user_inp;
 
                 RequestQueue requestQueue = Volley.newRequestQueue(LoginScreen.this);
                 StringRequest request = new StringRequest(Request.Method.GET,final_url, new Response.Listener<String>(){

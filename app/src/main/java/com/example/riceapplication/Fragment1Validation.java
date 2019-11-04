@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,10 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.Serializable;
 
-public class Fragment1Validation extends AppCompatActivity {
+public class Fragment1Validation extends AppCompatActivity implements Serializable {
+    private static final String TAG = "validateAc";
+
     private TextView date_va,time_va,textArea,type_va,
                      recipe_a_edit,recipe_b_edit,recipe_c_edit,recipe_d_edit,
                      grinding_edit,color_edit,smell_edit,radioButton_clean,
@@ -30,7 +30,9 @@ public class Fragment1Validation extends AppCompatActivity {
                      radioButton_ta_krang,getRadioButton_ta_krang_broke,
                      radioButton_contamination_edit;
 
-    public static final String URL = "http://192.168.64.2/insertData.php";
+    public static final String URL = "http://10.0.2.2:8080/rice_app/insert.jsp?";
+    private String insert_url;
+    private long final_insert_url ;
     String date,time,type,a,b,c,d,rc,re,ri,tc,tb,con,ge,ce,se,note;
 
     Button va_btn;
@@ -148,9 +150,29 @@ public class Fragment1Validation extends AppCompatActivity {
     }
 
     private void onButtonClick(){
+
+        insert_url = URL + "data_va=" + date
+                               + "&time_va=" + time
+                               + "&type_va=" + type
+                               + "&recipe_a=" + a
+                               + "&recipe_b=" + b
+                               + "&recipe_c=" + c
+                               + "&recipe_d=" + d
+                               + "&clean=" + rc
+                               + "&engine=" + re
+                               + "&issue=" + ri
+                               + "&ta_krang=" + tc
+                               + "&ta_krang_ba=" + tb
+                               + "&contamination=" + con
+                               + "&grinding=" + ge
+                               + "&color=" + ce
+                               + "&smell=" + se
+                               + "&note=" + note;
+
         if(!date.isEmpty() && !time.isEmpty()){
+            Log.d(TAG, "onButtonClick: Final URL : "+insert_url);
             RequestQueue requestQueue = Volley.newRequestQueue(Fragment1Validation.this);
-            StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>(){
+            StringRequest request = new StringRequest(Request.Method.GET, insert_url, new Response.Listener<String>(){
                 @Override
                 public void onResponse(String response) {
                     Log.d("onResponse",response.toString());
@@ -164,32 +186,7 @@ public class Fragment1Validation extends AppCompatActivity {
                     Log.d("onError",error.toString());
                     Toast.makeText(Fragment1Validation.this,"เกิดข้อผิดพลาดโปรดลองอีกครั้ง",Toast.LENGTH_SHORT).show();
                 }
-            }){
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String,String> params = new HashMap<String,String>();
-                    String t = time.trim().toString();
-                    params.put("วัน", date);
-                    params.put("เวลา", time);
-                    params.put("ประเภทสินค้า", type);
-                    params.put("A", a);
-                    params.put("B", b);
-                    params.put("C", c);
-                    params.put("D", d);
-                    params.put("การโม่_ความสะอาด", rc);
-                    params.put("การโม่_การเดินเครื่อง", re);
-                    params.put("การโม่_สิ่งผิดปกติ", ri);
-                    params.put("ตะแกรง_ความสะอาด", tc);
-                    params.put("ตะแกรง_รอยชำรุด", tb);
-                    params.put("ตะแกรง_ความละเอียด", ge);
-                    params.put("น้ำแป้ง_สิ่งเจือปน", con);
-                    params.put("น้ำแป้ง_สี", ce);
-                    params.put("น้ำแป้ง_กลิ่น", se);
-                    params.put("หมายเหตุ", note);
-
-                    return params;
-                }
-            };
+            });
             requestQueue.add(request);
         }
 
