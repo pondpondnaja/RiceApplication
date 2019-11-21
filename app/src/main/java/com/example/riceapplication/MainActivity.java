@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toolbar.setTitle(getResources().getString(R.string.menu1));
             Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
         }
+
         Log.d(TAG, "onCreate: Username : "+usrHelper.getUserName());
     }
 
@@ -135,13 +136,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void run() {
                         usrHelper.deleteSession();
-
-                        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                            for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++) {
+                        if (fragmentManager.getBackStackEntryCount() > 0) {
+                            for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
                                 fragmentManager.popBackStackImmediate();
                             }
                         }
-
+                        Log.d(TAG, "onNavigationItemSelected: BackStack : "+fragmentManager.getBackStackEntryCount());
                         Intent intent = new Intent(MainActivity.this,LoginScreen.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.fade_in,R.anim.fade_out);

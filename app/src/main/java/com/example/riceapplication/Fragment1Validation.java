@@ -208,6 +208,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
                                     intent.putExtra("from_fg","1");
                                     intent.putExtra("username",username);
                                     startActivity(intent);
+                                    finish();
                                 }
                             }, 1500);
                         }else{

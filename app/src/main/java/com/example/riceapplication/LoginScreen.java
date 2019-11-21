@@ -162,6 +162,12 @@ public class LoginScreen extends AppCompatActivity{
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: Called");
+    }
+
+    @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
@@ -186,6 +192,7 @@ public class LoginScreen extends AppCompatActivity{
             backToast.cancel();
             super.onBackPressed();
             finish();
+            //System.exit(0);
             return;
         }
     }
