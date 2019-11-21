@@ -10,29 +10,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <TextView
-            android:id="@+id/date_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="วัน / เดือน / ปี"
-            android:textSize="23sp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/alltextcolor"/>
-
-        <EditText
-            android:id="@+id/date_edit_4"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:ems="20"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/date_4"
-            android:textColor="@color/alltextcolor"
-            android:hint="@string/hint_1"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:background="@drawable/edittext_box"/>
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/rice"
@@ -40,19 +19,18 @@
             android:layout_height="wrap_content"
             android:text="ข้าว/ก.ส."
             android:textSize="23sp"
-            android:layout_marginTop="22dp"
-            android:layout_below="@id/date_4"
+            android:layout_marginTop="5dp"
             android:textColor="@color/alltextcolor"/>
 
         <EditText
             android:id="@+id/rice_edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/date_4"
             android:layout_toRightOf="@id/rice"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -62,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="ชื่อสินค้า"
             android:textSize="23sp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="27dp"
             android:layout_below="@id/rice"
             android:textColor="@color/alltextcolor"/>
 
@@ -74,41 +52,17 @@
             android:layout_toRightOf="@id/ProductName_4"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
+            android:textColor="@color/all_text_color"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
-
-        <TextView
-            android:id="@+id/date_4_lot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lot.NO."
-            android:textSize="23sp"
-            android:layout_marginTop="22dp"
-            android:layout_below="@+id/ProductName_4"
-            android:textColor="@color/alltextcolor"/>
-
-        <EditText
-            android:id="@+id/date_edit_4_lot"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:ems="20"
-            android:layout_marginLeft="10dp"
-            android:layout_below="@+id/ProductName_edit_4"
-            android:layout_toRightOf="@id/date_4_lot"
-            android:textColor="@color/alltextcolor"
-            android:hint="@string/hint_1"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:background="@drawable/edittext_box"
-            android:layout_marginTop="15dp" />
 
         <TextView
             android:id="@+id/packed_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="บรรจุแล้ว"
-            android:layout_below="@id/date_4_lot"
+            android:layout_below="@id/ProductName_edit_4"
             android:textSize="25sp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -136,6 +90,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -158,6 +113,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -194,6 +150,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -216,6 +173,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -238,6 +196,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -259,6 +218,7 @@
             android:layout_toRightOf="@id/pang_copy"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
+            android:textColor="@color/all_text_color"
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
@@ -282,6 +242,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
@@ -291,7 +252,7 @@
             android:layout_height="wrap_content"
             android:text="ห้องแพ๊ค"
             android:textSize="23sp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="25dp"
             android:layout_below="@id/head_too"
             android:textColor="@color/alltextcolor"/>
 
@@ -304,43 +265,23 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:background="@drawable/edittext_box"
-            android:textAlignment="center"/>
-
-        <TextView
-            android:id="@+id/note_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu1_s31"
-            android:layout_below="@id/room_pack"
-            android:textSize="25sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textColor="@color/text_inside_backgound"
-            android:layout_marginTop="30dp"
-            android:textAlignment="center"
-            android:background="@color/colorPrimaryDark"/>
-
-        <EditText
-            android:id="@+id/note_edit_4"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@id/note_4"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:textSize="20sp"
+            android:textColor="@color/all_text_color"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/form4_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/note_edit_4"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/room_edit_pack"
             android:layout_centerHorizontal="true"
-            android:onClick="clickBtnOK"
-            android:text="บันทึก"
-            />
+            android:text="@string/btn_name"
+            android:textSize="20sp"
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="15dp"/>
 
     </RelativeLayout>
 

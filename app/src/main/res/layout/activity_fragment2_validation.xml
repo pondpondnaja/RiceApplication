@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_2_va"
+        android:id="@+id/toolbar2_va"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/login_banner"
@@ -14,64 +14,42 @@
         android:elevation="4dp"/>
 
     <ScrollView
-        android:id="@+id/validate2"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_2_va"
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/validate2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
-            <TextView
-                android:id="@+id/date_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/menu2_s1"
-                android:textSize="23sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/alltextcolor"/>
-
-            <TextView
-                android:id="@+id/date_2_va"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:ems="20"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/date_2"
-                android:gravity="center_vertical"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:background="@drawable/edittext_box"/>
-            //
+            //รอบที่
             <TextView
                 android:id="@+id/round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s2"
                 android:textSize="23sp"
-                android:layout_marginTop="22dp"
-                android:layout_below="@id/date_2"
+                android:paddingTop="5dp"
+                android:layout_marginTop="?attr/actionBarSize"
                 android:textColor="@color/alltextcolor"/>
 
             <TextView
                 android:id="@+id/round_va"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/date_2_va"
                 android:layout_toRightOf="@id/round"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
                 android:textSize="20sp"
+                android:layout_marginTop="?attr/actionBarSize"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
                 android:textAlignment="center"/>
-            //
+            //ชื่อสินค้า
             <TextView
                 android:id="@+id/goods_name"
                 android:layout_width="wrap_content"
@@ -94,19 +72,19 @@
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
                 android:textAlignment="center"/>
-            //
+            //ชนิด Radio
             <TextView
-                android:id="@+id/type_2"
+                android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s4"
                 android:textSize="23sp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="25dp"
                 android:layout_below="@id/goods_name"
                 android:textColor="@color/alltextcolor"/>
 
             <TextView
-                android:id="@+id/type_2_va"
+                android:id="@+id/type_va"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
@@ -114,16 +92,18 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="17dp"
                 android:gravity="center_vertical"
-                android:layout_toRightOf="@id/type_2"
+                android:textSize="20sp"
+                android:layout_toRightOf="@id/type"
                 android:layout_below="@id/goods_name_va">
             </TextView>
-            //
+
+            //ความหนา Radio
             <TextView
                 android:id="@+id/thickness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s7"
-                android:layout_below="@id/type_2"
+                android:layout_below="@id/type"
                 android:textSize="25sp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -140,10 +120,12 @@
                 android:textAlignment="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="17dp"
+                android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:layout_below="@id/thickness">
             </TextView>
-            //
+
+            //Temp/speed นึ่ง หัวข้อ
             <TextView
                 android:id="@+id/steam"
                 android:layout_width="match_parent"
@@ -157,14 +139,14 @@
                 android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:background="@color/colorPrimaryDark"/>
-
+            //80-90
             <TextView
                 android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s12"
                 android:textSize="23sp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@id/steam"
                 android:textColor="@color/alltextcolor"/>
 
@@ -179,8 +161,9 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:inputType="number"/>
+            //20 RPM
             <TextView
                 android:id="@+id/rpm"
                 android:layout_width="wrap_content"
@@ -202,8 +185,9 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:inputType="number"/>
+            //Temp-Speed อบหมาด หัวข้อ
             <TextView
                 android:id="@+id/damp"
                 android:layout_width="match_parent"
@@ -217,30 +201,31 @@
                 android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:background="@color/colorPrimaryDark"/>
-
+            //70-80
             <TextView
-                android:id="@+id/temperature_2"
+                android:id="@+id/temperature2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s15"
                 android:textSize="23sp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@id/damp"
                 android:textColor="@color/alltextcolor"/>
 
             <TextView
-                android:id="@+id/temperature_2_va"
+                android:id="@+id/temperature2_va"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@id/damp"
-                android:layout_toRightOf="@id/temperature_2"
+                android:layout_toRightOf="@id/temperature2"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
-                android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:inputType="number"/>
+            //50 RPM
             <TextView
                 android:id="@+id/rpm_2"
                 android:layout_width="wrap_content"
@@ -248,22 +233,23 @@
                 android:text="@string/menu2_s16"
                 android:textSize="23sp"
                 android:layout_marginTop="22dp"
-                android:layout_below="@id/temperature_2"
+                android:layout_below="@id/temperature2"
                 android:textColor="@color/alltextcolor"/>
 
             <TextView
-                android:id="@+id/rpm_2_va"
+                android:id="@+id/rpm2_va"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/temperature_2_va"
+                android:layout_below="@id/temperature2_va"
                 android:layout_toRightOf="@id/rpm_2"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:inputType="number"/>
+            //เวลา หัวข้อ
             <TextView
                 android:id="@+id/time_fg_2_head"
                 android:layout_width="match_parent"
@@ -277,14 +263,14 @@
                 android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:background="@color/colorPrimaryDark"/>
-
+            //เริ่ม
             <TextView
                 android:id="@+id/time_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/menu2_s18"
                 android:textSize="23sp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@id/time_fg_2_head"
                 android:textColor="@color/alltextcolor"/>
 
@@ -299,8 +285,9 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:hint="@string/hint_2"/>
+            //เสร็จ
             <TextView
                 android:id="@+id/time_done"
                 android:layout_width="wrap_content"
@@ -322,8 +309,9 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:textAlignment="center"
+                android:hint="@string/hint_2"/>
+            //จำนวน
             <TextView
                 android:id="@+id/how_many"
                 android:layout_width="wrap_content"
@@ -343,10 +331,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
-                android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:hint="@string/menu2_s21"
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:inputType="number"/>
+            //เศษแป้ง
             <TextView
                 android:id="@+id/remaining_flour"
                 android:layout_width="wrap_content"
@@ -368,8 +358,10 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:textAlignment="center"/>
-            //
+                android:hint="@string/menu2_s23"
+                android:textAlignment="center"
+                android:inputType="number"/>
+            //ผู้รับผิดชอบ
             <TextView
                 android:id="@+id/supervisor"
                 android:layout_width="match_parent"
@@ -388,54 +380,23 @@
                 android:id="@+id/supervisor_va"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:textAlignment="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="17dp"
-                android:gravity="center_vertical"
-                android:layout_below="@id/supervisor">
-            </TextView>
-
-            <TextView
-                android:id="@+id/note2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/menu1_s31"
-                android:layout_below="@id/supervisor_va"
-                android:textSize="25sp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:textColor="@color/text_inside_backgound"
-                android:layout_marginTop="30dp"
-                android:textAlignment="center"
-                android:background="@color/colorPrimaryDark"/>
-
-            <TextView
-                android:id="@+id/note2_va"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_below="@id/note2"
+                android:layout_below="@id/supervisor"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
                 android:textSize="20sp"
-                android:inputType="text|textMultiLine"
+                android:gravity="center_vertical"
                 android:background="@drawable/edittext_box"
-                android:gravity="top|left"
-                android:overScrollMode="always"
-                android:scrollbarStyle="insideInset"
-                android:scrollbars="vertical"
-                android:lines="6"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:scrollHorizontally="false"/>
+                android:textAlignment="center" />
 
+            //กดปุ่ม
             <Button
-                android:id="@+id/validate_2_btn"
+                android:id="@+id/validate2_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/note2_va"
+                android:layout_below="@id/supervisor_va"
                 android:layout_centerHorizontal="true"
                 android:text="@string/btn_name"
                 android:textSize="20sp"
+                android:layout_marginTop="15dp"
                 android:textAlignment="center"
                 android:background="@color/colorPrimaryDark"
                 android:layout_marginBottom="15dp"/>

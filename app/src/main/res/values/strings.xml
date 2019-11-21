@@ -6,10 +6,15 @@
     <string name="login_banner">LOGIN</string>
     <string name="user">Username</string>
     <string name="password">Password</string>
+    <string name="dummy_text">Dummy text</string>
+    <string name="lot_no">LOT NO</string>
 
     <string name="menu1">บันทึกการโม่ข้าว</string>
     <string name="menu2">บันทึกการนึงแป้ง-อบหมาด</string>
-    <string name="menu3">Optional</string>
+    <string name="menu3">บันทึกการจับเส้นเข้าตู้</string>
+    <string name="menu4">บรรจุ</string>
+    <string name="setting">การตั้งค่า</string>
+    <string name="menu5">ออกจากระบบ</string>
 
     <string name="hint_1">ใส่วันที่ตรงนี้</string>
     <string name="hint_2">ใส่เวลาตรงนี้</string>

@@ -1,8 +1,14 @@
 package com.example.riceapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,23 +19,38 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,lot_Selecter.OnMyFragmentListener{
     private static final String TAG = "home";
     private DrawerLayout drawer;
     FragmentManager fragmentManager;
     NavigationView navigationView;
     Toolbar toolbar;
-    String tooltitle;
+    Bundle bundle;
+    TextView name;
+    View headerView;
+    ProgressBar progressBar;
+    ImageView img_overlay;
+    LoginHelper usrHelper;
+
+    String tooltitle,go_to;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //*** Session Login
+        usrHelper = new LoginHelper(this);
+
         fragmentManager = getSupportFragmentManager();
-        navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
-        drawer = findViewById(R.id.drawer_layout);
+        navigationView  = findViewById(R.id.navigationView);
+        toolbar         = findViewById(R.id.toolbar);
+        drawer          = findViewById(R.id.drawer_layout);
+        progressBar     = findViewById(R.id.progressBar);
+        img_overlay     = findViewById(R.id.img_overlay);
+        headerView      = navigationView.getHeaderView(0);
+        name            = headerView.findViewById(R.id.nav_t1);
+        bundle          = new Bundle();
 
         setSupportActionBar(toolbar);
         navigationView.setNavigationItemSelectedListener(this);
@@ -41,8 +62,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             Log.d(TAG, "onCreate: setHomepage");
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment1()).addToBackStack(null).commit();
+            Bundle extras = getIntent().getExtras();
+
+            if(extras == null) {
+                go_to    = "1";
+            } else {
+                go_to    = extras.getString("from_fg");
+            }
+
+            name.setText(usrHelper.getUserName());
+
+            //bundle.putString("username", username);
+            lot_Selecter fragment1 = new lot_Selecter();
+            bundle.putString("from_fragment",go_to);
+            fragment1.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack(null).commit();
+            toolbar.setTitle(getResources().getString(R.string.menu1));
+            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
         }
+        Log.d(TAG, "onCreate: Username : "+usrHelper.getUserName());
     }
 
     @Override
@@ -51,35 +89,70 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
 
             case R.id.menu_no1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment1()).addToBackStack(null).commit();
+                lot_Selecter fragment1 = new lot_Selecter();
+                bundle.putString("from_fragment","1");
+                fragment1.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack(null).commit();
+                Log.d(TAG, "onNavigationItemSelected: "+bundle);
                 tooltitle = menuItem.getTitle().toString();
                 toolbar.setTitle(tooltitle);
                 break;
 
             case R.id.menu_no2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment2()).addToBackStack(null).commit();
+                lot_Selecter fragment2 = new lot_Selecter();
+                bundle.putString("from_fragment","2");
+                fragment2.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment2).addToBackStack(null).commit();
+                Log.d(TAG, "onNavigationItemSelected: "+bundle);
                 tooltitle = menuItem.getTitle().toString();
                 toolbar.setTitle(tooltitle);
                 break;
 
             case R.id.menu_no3:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment3()).addToBackStack(null).commit();
+                lot_Selecter fragment3 = new lot_Selecter();
+                bundle.putString("from_fragment","3");
+                fragment3.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment3).addToBackStack(null).commit();
+                Log.d(TAG, "onNavigationItemSelected: "+bundle);
                 tooltitle = menuItem.getTitle().toString();
                 toolbar.setTitle(tooltitle);
                 break;
 
             case R.id.menu_no4:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment4()).addToBackStack(null).commit();
+                lot_Selecter fragment4 = new lot_Selecter();
+                bundle.putString("from_fragment","4");
+                fragment4.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment4).addToBackStack(null).commit();
+                Log.d(TAG, "onNavigationItemSelected: "+bundle);
                 tooltitle = menuItem.getTitle().toString();
                 toolbar.setTitle(tooltitle);
                 break;
 
-            case R.id.contact:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).addToBackStack(null).commit();
-                tooltitle = menuItem.getTitle().toString();
-                toolbar.setTitle(tooltitle);
-                break;
+            case R.id.logout_btn:
+                img_overlay.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        usrHelper.deleteSession();
+
+                        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                            for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++) {
+                                fragmentManager.popBackStackImmediate();
+                            }
+                        }
+
+                        Intent intent = new Intent(MainActivity.this,LoginScreen.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                        progressBar.setVisibility(View.GONE);
+                        img_overlay.setVisibility(View.GONE);
+                        finish();
+                    }
+                },3000);
         }
+
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
@@ -93,7 +166,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
         if(fragmentManager.getBackStackEntryCount() == 0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment1()).addToBackStack(null).commit();
+            /*bundle.putString("username", username);
+            lot_Selecter fragment1 = new lot_Selecter();
+            bundle.putString("from_fragment",go_to);
+            fragment1.setArguments(bundle);*/
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new lot_Selecter()).addToBackStack("lot_no").commit();
+            toolbar.setTitle(getResources().getString(R.string.menu1));
+            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
         }
+    }
+
+    @Override
+    public void onChangeToolbarTitle(String title) {
+        toolbar.setTitle(title);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 }

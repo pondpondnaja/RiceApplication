@@ -15,4 +15,6 @@
     <color name="login_screen">#FFA8C8</color>
     <color name="login_banner">#FC77A4</color>
     <color name="login">#FFFFFF</color>
+
+    <color name="error">#FF0000</color>
 </resources>
