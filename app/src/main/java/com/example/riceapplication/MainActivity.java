@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             name.setText(usrHelper.getUserName());
 
-            //bundle.putString("username", username);
             lot_Selecter fragment1 = new lot_Selecter();
             bundle.putString("from_fragment",go_to);
             fragment1.setArguments(bundle);
@@ -166,11 +165,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
         if(fragmentManager.getBackStackEntryCount() == 0){
-            /*bundle.putString("username", username);
+            //bundle.putString("username", username);
             lot_Selecter fragment1 = new lot_Selecter();
             bundle.putString("from_fragment",go_to);
-            fragment1.setArguments(bundle);*/
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new lot_Selecter()).addToBackStack("lot_no").commit();
+            fragment1.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack("lot_no").commit();
             toolbar.setTitle(getResources().getString(R.string.menu1));
             Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
         }
