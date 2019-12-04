@@ -7,7 +7,7 @@
     android:paddingEnd="2dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lot_recycleview"
+        android:id="@+id/lot_number_view"
         android:paddingTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

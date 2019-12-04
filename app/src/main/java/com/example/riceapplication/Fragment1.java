@@ -33,7 +33,7 @@ import java.io.Serializable;
 public class Fragment1 extends Fragment implements Serializable {
 
     private static final String TAG = "fg1";
-    private static String URL = "http://10.0.2.2:8080/rice_app/read_lot_data.jsp?";
+    private static String URL = "http://10.0.2.2:8084/kak/read_lot_data.jsp?";
     private static final int DATE_REQUEST_CODE = 11;
     private static final int TIME_REQUEST_CODE = 12;
 

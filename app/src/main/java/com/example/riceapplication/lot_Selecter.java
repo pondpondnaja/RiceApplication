@@ -119,6 +119,7 @@ public class lot_Selecter extends Fragment {
 
                         Log.d(TAG, "onResponse: Array    : "+lot_number);
                     }
+                    Log.d(TAG, "onResponse: Init data complete.");
                     initRecycleView(view);
 
                 } catch (JSONException e) {
@@ -138,7 +139,7 @@ public class lot_Selecter extends Fragment {
 
     private void initRecycleView(View view) {
         Log.d(TAG, "initRecycleView: Called init");
-        recyclerView = view.findViewById(R.id.lot_recycleview);
+        recyclerView = view.findViewById(R.id.lot_number_view);
         layoutManager = new LinearLayoutManager(context,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         lot_adapter lot_adapter = new lot_adapter(context,lot_number,user,from_fragment);
