@@ -28,7 +28,7 @@ import java.io.Serializable;
 public class Fragment2Validation extends AppCompatActivity implements Serializable{
 
     private static final String TAG = "validateAc2";
-    private static final String URL = "http://10.0.2.2:8080/rice_app/insert2.jsp?";
+    private static final String URL = "http://10.0.2.2:8084/kak/insert2.jsp?";
 
     TextView round_va,goods_name_va,type_va,thickness_va,
              temperature_va,rpm_va,temperature2_va,rpm2_va,

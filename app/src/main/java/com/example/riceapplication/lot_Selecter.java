@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class lot_Selecter extends Fragment {
     private static final String TAG = "lotSeletor";
-    private static final String URL = "http://10.0.2.2:8080/rice_app/read_lot_no.jsp";
+    private static final String URL = "http://10.0.2.2:8084/kak/read_lot_no.jsp";
     private ArrayList<String> lot_number = new ArrayList<>();
     private LinearLayoutManager layoutManager;
     RecyclerView recyclerView;

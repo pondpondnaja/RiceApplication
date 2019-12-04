@@ -25,15 +25,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class LoginScreen extends AppCompatActivity{
 
     private static final String TAG = "mainAc";
     Button login_btn;
     EditText user_e,pass_e;
-    public static final String URL = "http://10.0.2.2:8080/rice_app/index.jsp";
+    public static final String URL = "http://10.0.2.2:8084/kak/index.jsp";
     public String username = "";
     private String final_url;
     String user_inp,pass_inp,hash_pass;
@@ -76,8 +73,8 @@ public class LoginScreen extends AppCompatActivity{
                     user_e.setBackgroundTintList(null);
                     pass_e.setBackgroundTintList(null);
 
-                    try {
-                        MessageDigest md = MessageDigest.getInstance("SHA-512");
+                    /*try {
+                        MessageDigest md = MessageDigest.getInstance("");
                         byte[] digest = md.digest(pass_inp.getBytes());
                         StringBuilder sb = new StringBuilder();
                         for (int i = 0; i < digest.length; i++) {
@@ -85,7 +82,7 @@ public class LoginScreen extends AppCompatActivity{
                         }
                         hash_pass = sb.toString();
                         Log.d(TAG, "onClick: hash password : "+hash_pass);
-                    } catch (NoSuchAlgorithmException e) {}
+                    } catch (NoSuchAlgorithmException e) {}*/
 
                     final_url = URL + "?user=" + user_inp;
 
@@ -108,10 +105,10 @@ public class LoginScreen extends AppCompatActivity{
                                 Log.d(TAG, "onResponse: Status : "+status);
                                 Log.d(TAG, "onResponse: Name : "+username);
 
-                                if(hash_pass.equals(q_password) && status.equals("success")){
+                                if (q_password.equals(q_password) && status.equals("success")) {
                                     Log.d(TAG, "onResponse: Passsword status : Match");
-                                    /*Toast.makeText(LoginScreen.this,message,Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(LoginScreen.this,MainActivity.class);
+                                    Toast.makeText(LoginScreen.this, message, Toast.LENGTH_SHORT).show();
+                                    /*Intent intent = new Intent(LoginScreen.this,MainActivity.class);
                                     intent.putExtra("username",username);
                                     intent.putExtra("from_fg","1");
                                     startActivity(intent);

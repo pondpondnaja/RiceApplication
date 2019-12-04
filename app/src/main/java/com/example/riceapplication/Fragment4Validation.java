@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class Fragment4Validation extends AppCompatActivity {
 
     private static final String TAG = "validateAc3";
-    private static final String URL = "http://10.0.2.2:8080/rice_app/insert4.jsp?";
+    private static final String URL = "http://10.0.2.2:8084/kak/insert4.jsp?";
 
     TextView rice_edit,productName_edit_4,manybox_edit,manysong_edit,
              manybox_edit_waiting,manysong_edit_waiting,pang_edit,
