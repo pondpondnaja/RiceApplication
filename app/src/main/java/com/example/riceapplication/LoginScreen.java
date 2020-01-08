@@ -25,19 +25,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginScreen extends AppCompatActivity{
 
     private static final String TAG = "mainAc";
+    public static final String URL = "http://10.0.2.2:8080/rice_app/index.jsp";
     Button login_btn;
-    EditText user_e,pass_e;
-    public static final String URL = "http://10.0.2.2:8084/kak/index.jsp";
-    public String username = "";
     private String final_url;
     String user_inp,pass_inp,hash_pass;
     private boolean doubleBackToExitPressedOnce = false;
     private Toast backToast;
 
     ProgressBar progressBar;
+    EditText user_e, pass_e;
+    private String username = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +76,17 @@ public class LoginScreen extends AppCompatActivity{
                     user_e.setBackgroundTintList(null);
                     pass_e.setBackgroundTintList(null);
 
-                    /*try {
-                        MessageDigest md = MessageDigest.getInstance("");
+                    try {
+                        MessageDigest md = MessageDigest.getInstance("SHA-512");
                         byte[] digest = md.digest(pass_inp.getBytes());
                         StringBuilder sb = new StringBuilder();
-                        for (int i = 0; i < digest.length; i++) {
-                            sb.append(Integer.toString((digest[i] & 0xff) + 0x100, 16).substring(1));
+                        for (byte b : digest) {
+                            sb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
                         }
                         hash_pass = sb.toString();
                         Log.d(TAG, "onClick: hash password : "+hash_pass);
-                    } catch (NoSuchAlgorithmException e) {}*/
+                    } catch (NoSuchAlgorithmException ignored) {
+                    }
 
                     final_url = URL + "?user=" + user_inp;
 
@@ -102,10 +106,10 @@ public class LoginScreen extends AppCompatActivity{
                                 username = item.getString("Name");
 
                                 Log.d(TAG, "onResponse: Query_password : "+q_password);
-                                Log.d(TAG, "onResponse: Status : "+status);
-                                Log.d(TAG, "onResponse: Name : "+username);
+                                Log.d(TAG, "onResponse: Status         : " + status);
+                                Log.d(TAG, "onResponse: Name           : " + username);
 
-                                if (q_password.equals(q_password) && status.equals("success")) {
+                                if(hash_pass.equals(q_password) && status.equals("success")){
                                     Log.d(TAG, "onResponse: Passsword status : Match");
                                     Toast.makeText(LoginScreen.this, message, Toast.LENGTH_SHORT).show();
                                     /*Intent intent = new Intent(LoginScreen.this,MainActivity.class);
@@ -132,7 +136,7 @@ public class LoginScreen extends AppCompatActivity{
 
                                 }else{
                                     Log.d(TAG, "onResponse: Passsword status : Didn't match");
-                                    Toast.makeText(LoginScreen.this,"Username or Password didn't match.gig",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginScreen.this, message, Toast.LENGTH_LONG).show();
                                     login_btn.setVisibility(View.VISIBLE);
                                     progressBar.setVisibility(View.GONE);
                                     user_e.setEnabled(true);
@@ -149,6 +153,7 @@ public class LoginScreen extends AppCompatActivity{
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.d("onError",error.toString());
+                            error.printStackTrace();
                             Toast.makeText(LoginScreen.this,"เกิดข้อผิดพลาดโปรดลองอีกครั้ง",Toast.LENGTH_SHORT).show();
                         }
                     });

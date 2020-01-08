@@ -35,9 +35,9 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
             grinding_edit,color_edit,smell_edit,radioButton_clean,
             radioButton_engin,radioButton_issue,
             radioButton_ta_krang,getRadioButton_ta_krang_broke,
-            radioButton_contamination_edit;
+            radioButton_contamination_edit, note_va;
 
-    String lo,date,time,type,a,b,c,d,rc,re,ri,tc,tb,con,ge,ce,se,insert_url,username , status , message;
+    String lo, date, time, type, a, b, c, d, rc, re, ri, tc, tb, con, ge, ce, se, insert_url, username, status, message, no;
 
     Button va_btn;
     Toolbar toolbar;
@@ -67,8 +67,9 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
         grinding_edit = findViewById(R.id.grinding_va);
         color_edit    = findViewById(R.id.color_va);
         smell_edit    = findViewById(R.id.smell_va);
+        note_va = findViewById(R.id.note_va);
 
-        toolbar.setTitle("Validation");
+        toolbar.setTitle("ยืนยันการบันทึกการโม่ข้าว");
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -90,6 +91,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
                 ge       = null;
                 ce       = null;
                 se       = null;
+                no = null;
                 username = null;
                 new_form = false;
             } else {
@@ -110,6 +112,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
                 ge       = extras.getString("A_FLOUR_CONT");
                 ce       = extras.getString("A_FLOUR_COL");
                 se       = extras.getString("A_FLOUR_SMELL");
+                no = extras.getString("REC_PS");
                 username = extras.getString("username");
                 new_form = extras.getBoolean("new_form");
             }
@@ -131,6 +134,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
             ge       = (String)  savedInstanceState.getSerializable("A_FLOUR_CONT");
             ce       = (String)  savedInstanceState.getSerializable("A_FLOUR_COL");
             se       = (String)  savedInstanceState.getSerializable("A_FLOUR_SMELL");
+            no = (String) savedInstanceState.getSerializable("REC_PS");
             username = (String)  savedInstanceState.getSerializable("username");
             new_form = (boolean) savedInstanceState.getSerializable("new_form");
         }
@@ -151,6 +155,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
         grinding_edit.setText(ge);
         color_edit.setText(ce);
         smell_edit.setText(se);
+        note_va.setText(no);
         Log.d(TAG, "onCreate: Username : "+username);
 
         va_btn.setOnClickListener(new View.OnClickListener() {
@@ -181,6 +186,7 @@ public class Fragment1Validation extends AppCompatActivity implements Serializab
                 + "&A_FLOUR_CONT=" + ge
                 + "&A_FLOUR_COL=" + ce
                 + "&A_FLOUR_SMELL=" + se
+                + "&REC_PS=" + no
                 + "&username="+ username
                 + "&new_form="+ new_form;
 

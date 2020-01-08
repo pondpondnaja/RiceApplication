@@ -15,7 +15,6 @@
 
     <ScrollView
         android:id="@+id/validate"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar_va"
@@ -28,7 +27,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
-            //Lotno
+            <!--Lotno-->
             <TextView
                 android:id="@+id/lotno"
                 android:layout_width="wrap_content"
@@ -65,9 +64,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:ems="20"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/date"
+                android:layout_toEndOf="@id/date"
                 android:hint="@string/hint_1"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -90,8 +89,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@id/date_va"
-                android:layout_toRightOf="@id/time"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/time"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
                 android:gravity="center_vertical"
@@ -113,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@id/time_va"
-                android:layout_toRightOf="@id/type"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/type"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
                 android:gravity="center_vertical"
@@ -137,8 +136,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/menu1_s5"
                 android:layout_below="@id/type"
-                android:layout_marginLeft="40dp"
-                android:layout_toRightOf="@id/recipe"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@id/recipe"
                 android:textSize="23sp"
                 android:textColor="@color/alltextcolor"
                 android:layout_marginTop="20dp"/>
@@ -149,8 +148,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/menu1_s6"
                 android:layout_below="@id/type"
-                android:layout_marginLeft="70dp"
-                android:layout_toRightOf="@id/recipe_a"
+                android:layout_marginStart="70dp"
+                android:layout_toEndOf="@id/recipe_a"
                 android:textSize="23sp"
                 android:textColor="@color/alltextcolor"
                 android:layout_marginTop="20dp"/>
@@ -492,16 +491,48 @@
                 android:textSize="20sp"
                 android:background="@drawable/edittext_box"
                 android:textAlignment="center"/>
+            //หมายเหตุ
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/smell_va"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimaryDark"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/menu1_s31"
+                android:textAlignment="center"
+                android:textColor="@color/text_inside_backgound"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/note_va"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/note"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/edittext_box"
+                android:gravity="top|left"
+                android:inputType="text|textMultiLine"
+                android:lines="6"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
             //กดปุ่ม
             <Button
                 android:id="@+id/validate_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/smell_va"
+                android:layout_below="@id/note_va"
                 android:layout_centerHorizontal="true"
                 android:text="@string/btn_name"
                 android:textSize="20sp"
-                android:layout_marginTop="15dp"
                 android:textAlignment="center"
                 android:background="@color/colorPrimaryDark"
                 android:layout_marginBottom="15dp"/>

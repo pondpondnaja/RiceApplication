@@ -569,16 +569,48 @@
             android:textSize="20sp"
             android:background="@drawable/edittext_box"
             android:textAlignment="center"/>
+        //หมายเหตุ
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smell_edit"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimaryDark"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/menu1_s31"
+            android:textAlignment="center"
+            android:textColor="@color/text_inside_backgound"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/note_edit"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/note"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_box"
+            android:gravity="top|left"
+            android:inputType="text|textMultiLine"
+            android:lines="6"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp" />
         //กดปุ่ม
         <Button
             android:id="@+id/submit_button_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/smell_edit"
+            android:layout_below="@id/note_edit"
             android:layout_centerHorizontal="true"
             android:text="@string/btn_name"
             android:textSize="20sp"
-            android:layout_marginTop="15dp"
             android:textAlignment="center"
             android:background="@color/colorPrimaryDark"
             android:layout_marginBottom="15dp"/>
