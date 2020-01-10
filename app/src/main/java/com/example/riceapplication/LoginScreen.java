@@ -102,10 +102,11 @@ public class LoginScreen extends AppCompatActivity{
                                 String q_password = item.getString("Password");
                                 String status     = item.getString("status");
                                 String message    = item.getString("message");
+                                String role = item.getString("Role");
 
                                 username = item.getString("Name");
 
-                                Log.d(TAG, "onResponse: Query_password : "+q_password);
+                                Log.d(TAG, "onResponse: Query_password : " + q_password);
                                 Log.d(TAG, "onResponse: Status         : " + status);
                                 Log.d(TAG, "onResponse: Name           : " + username);
 
@@ -117,7 +118,7 @@ public class LoginScreen extends AppCompatActivity{
                                     intent.putExtra("from_fg","1");
                                     startActivity(intent);
                                     overridePendingTransition(R.anim.fade_in,R.anim.fade_out);*/
-                                    usrHelper.createSession(username);
+                                    usrHelper.createSession(username, role);
                                     login_btn.setVisibility(View.GONE);
                                     progressBar.setVisibility(View.VISIBLE);
                                     user_e.setEnabled(false);
@@ -135,6 +136,7 @@ public class LoginScreen extends AppCompatActivity{
                                     },1500);
 
                                 }else{
+                                    message = "Username or Password doesn't match.";
                                     Log.d(TAG, "onResponse: Passsword status : Didn't match");
                                     Toast.makeText(LoginScreen.this, message, Toast.LENGTH_LONG).show();
                                     login_btn.setVisibility(View.VISIBLE);

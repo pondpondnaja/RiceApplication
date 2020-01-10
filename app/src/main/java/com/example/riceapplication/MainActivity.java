@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,lot_Selecter.OnMyFragmentListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, lot_Selecter.OnMyFragmentListener {
     private static final String TAG = "home";
     private DrawerLayout drawer;
     FragmentManager fragmentManager;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView img_overlay;
     LoginHelper usrHelper;
 
-    String tooltitle,go_to;
+    String tooltitle, go_to, role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,20 +44,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         usrHelper = new LoginHelper(this);
 
         fragmentManager = getSupportFragmentManager();
-        navigationView  = findViewById(R.id.navigationView);
-        toolbar         = findViewById(R.id.toolbar);
-        drawer          = findViewById(R.id.drawer_layout);
-        progressBar     = findViewById(R.id.progressBar);
-        img_overlay     = findViewById(R.id.img_overlay);
-        headerView      = navigationView.getHeaderView(0);
-        name            = headerView.findViewById(R.id.nav_t1);
-        bundle          = new Bundle();
+        navigationView = findViewById(R.id.navigationView);
+        toolbar = findViewById(R.id.toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        progressBar = findViewById(R.id.progressBar);
+        img_overlay = findViewById(R.id.img_overlay);
+        headerView = navigationView.getHeaderView(0);
+        name = headerView.findViewById(R.id.nav_t1);
+        bundle = new Bundle();
 
         setSupportActionBar(toolbar);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this,drawer,toolbar,
-                R.string.navigation_draw_open,R.string.navigation_draw_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawer, toolbar,
+                R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -64,68 +65,121 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.d(TAG, "onCreate: setHomepage");
             Bundle extras = getIntent().getExtras();
 
-            if(extras == null) {
-                go_to    = "1";
+            /*
+            if (extras == null) {
+                go_to = usrHelper.getRole();
             } else {
-                go_to    = extras.getString("from_fg");
+                go_to = extras.getString("from_fg");
             }
+            */
 
             name.setText(usrHelper.getUserName());
 
-            lot_Selecter fragment1 = new lot_Selecter();
+            /*lot_Selecter fragment1 = new lot_Selecter();
             bundle.putString("from_fragment",go_to);
             fragment1.setArguments(bundle);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack(null).commit();
+            */
+            checkRole();
             toolbar.setTitle(getResources().getString(R.string.menu1));
-            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
+            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : " + bundle);
         }
 
-        Log.d(TAG, "onCreate: Username : "+usrHelper.getUserName());
+        Log.d(TAG, "onCreate: Username : " + usrHelper.getUserName());
+    }
+
+    public void checkRole() {
+        role = usrHelper.getRole();
+        switch (role) {
+            case "0":
+                lot_Selecter fragment1 = new lot_Selecter();
+                bundle.putString("from_fragment", "1");
+                fragment1.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment1).addToBackStack(null).commit();
+                break;
+
+            case "1":
+                lot_Selecter fragment2 = new lot_Selecter();
+                bundle.putString("from_fragment", "2");
+                fragment2.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment2).addToBackStack(null).commit();
+                break;
+
+            case "2":
+                lot_Selecter fragment3 = new lot_Selecter();
+                bundle.putString("from_fragment", "3");
+                fragment3.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment3).addToBackStack(null).commit();
+                break;
+
+            case "3":
+                lot_Selecter fragment4 = new lot_Selecter();
+                bundle.putString("from_fragment", "4");
+                fragment4.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment4).addToBackStack(null).commit();
+                break;
+        }
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
 
             case R.id.menu_no1:
-                lot_Selecter fragment1 = new lot_Selecter();
-                bundle.putString("from_fragment","1");
-                fragment1.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack(null).commit();
-                Log.d(TAG, "onNavigationItemSelected: "+bundle);
-                tooltitle = menuItem.getTitle().toString();
-                toolbar.setTitle(tooltitle);
+                if (!role.equals("0")) {
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    lot_Selecter fragment1 = new lot_Selecter();
+                    bundle.putString("from_fragment", "1");
+                    fragment1.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment1).addToBackStack(null).commit();
+                    Log.d(TAG, "onNavigationItemSelected: " + bundle);
+                    tooltitle = menuItem.getTitle().toString();
+                    toolbar.setTitle(tooltitle);
+                }
                 break;
 
             case R.id.menu_no2:
-                lot_Selecter fragment2 = new lot_Selecter();
-                bundle.putString("from_fragment","2");
-                fragment2.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment2).addToBackStack(null).commit();
-                Log.d(TAG, "onNavigationItemSelected: "+bundle);
-                tooltitle = menuItem.getTitle().toString();
-                toolbar.setTitle(tooltitle);
+                if (!role.equals("1")) {
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    lot_Selecter fragment2 = new lot_Selecter();
+                    bundle.putString("from_fragment", "2");
+                    fragment2.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment2).addToBackStack(null).commit();
+                    Log.d(TAG, "onNavigationItemSelected: " + bundle);
+                    tooltitle = menuItem.getTitle().toString();
+                    toolbar.setTitle(tooltitle);
+                }
                 break;
 
             case R.id.menu_no3:
-                lot_Selecter fragment3 = new lot_Selecter();
-                bundle.putString("from_fragment","3");
-                fragment3.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment3).addToBackStack(null).commit();
-                Log.d(TAG, "onNavigationItemSelected: "+bundle);
-                tooltitle = menuItem.getTitle().toString();
-                toolbar.setTitle(tooltitle);
+                if (!role.equals("2")) {
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    lot_Selecter fragment3 = new lot_Selecter();
+                    bundle.putString("from_fragment", "3");
+                    fragment3.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment3).addToBackStack(null).commit();
+                    Log.d(TAG, "onNavigationItemSelected: " + bundle);
+                    tooltitle = menuItem.getTitle().toString();
+                    toolbar.setTitle(tooltitle);
+                }
                 break;
 
             case R.id.menu_no4:
-                lot_Selecter fragment4 = new lot_Selecter();
-                bundle.putString("from_fragment","4");
-                fragment4.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment4).addToBackStack(null).commit();
-                Log.d(TAG, "onNavigationItemSelected: "+bundle);
-                tooltitle = menuItem.getTitle().toString();
-                toolbar.setTitle(tooltitle);
+                if (!role.equals("3")) {
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    lot_Selecter fragment4 = new lot_Selecter();
+                    bundle.putString("from_fragment", "4");
+                    fragment4.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment4).addToBackStack(null).commit();
+                    Log.d(TAG, "onNavigationItemSelected: " + bundle);
+                    tooltitle = menuItem.getTitle().toString();
+                    toolbar.setTitle(tooltitle);
+                }
                 break;
 
             case R.id.logout_btn:
@@ -141,15 +195,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 fragmentManager.popBackStackImmediate();
                             }
                         }
-                        Log.d(TAG, "onNavigationItemSelected: BackStack : "+fragmentManager.getBackStackEntryCount());
-                        Intent intent = new Intent(MainActivity.this,LoginScreen.class);
+                        Log.d(TAG, "onNavigationItemSelected: BackStack : " + fragmentManager.getBackStackEntryCount());
+                        Intent intent = new Intent(MainActivity.this, LoginScreen.class);
                         startActivity(intent);
-                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         progressBar.setVisibility(View.GONE);
                         img_overlay.setVisibility(View.GONE);
                         finish();
                     }
-                },3000);
+                }, 3000);
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -158,20 +212,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onBackPressed(){
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }else {
+        } else {
             super.onBackPressed();
         }
-        if(fragmentManager.getBackStackEntryCount() == 0){
+        if (fragmentManager.getBackStackEntryCount() == 0) {
             //bundle.putString("username", username);
             lot_Selecter fragment1 = new lot_Selecter();
-            bundle.putString("from_fragment",go_to);
+            bundle.putString("from_fragment", go_to);
             fragment1.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment1).addToBackStack("lot_no").commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment1).addToBackStack("lot_no").commit();
             toolbar.setTitle(getResources().getString(R.string.menu1));
-            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : "+bundle);
+            Log.d(TAG, "onNavigationItemSelected: Username sent to Fragment1 : " + bundle);
         }
     }
 
@@ -183,6 +237,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

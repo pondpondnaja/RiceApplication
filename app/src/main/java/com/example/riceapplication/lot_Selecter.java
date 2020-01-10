@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class lot_Selecter extends Fragment {
     private static final String TAG = "lotSeletor";
-    private static final String URL = "http://10.0.2.2:8084/kak/read_lot_no.jsp";
+    private static final String URL = "http://10.0.2.2:8080/rice_app/read_lot_no.jsp";
     private ArrayList<String> lot_number = new ArrayList<>();
     private LinearLayoutManager layoutManager;
     RecyclerView recyclerView;
@@ -40,13 +40,13 @@ public class lot_Selecter extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         final View view =  inflater.inflate(R.layout.lot_selecter_fragment,container,false);
-
+        context = view.getContext();
         //*** Session Login
         final LoginHelper usrHelper = new LoginHelper(getActivity().getApplicationContext());
         context = view.getContext();
         user    = usrHelper.getUserName();
-        
-        inidata(view);
+
+        initData(view);
         //initRecycleView(view);
         bundle = getArguments();
         if(bundle != null){
@@ -61,8 +61,11 @@ public class lot_Selecter extends Fragment {
         this.mListener = listener;
     }
 
-    public interface OnMyFragmentListener {
-        public void onChangeToolbarTitle(String title);
+    @Override
+    public void onStart() {
+        Log.d(TAG, "onStart: Initial data");
+        //initData();
+        super.onStart();
     }
 
     @Override
@@ -77,30 +80,10 @@ public class lot_Selecter extends Fragment {
         }
     }
 
-    @Override
-    public void onStart(){
-        Log.d(TAG, "onStart: Initial data");
-        //inidata();
-        super.onStart();
-    }
+    private void initData(final View view) {
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        mListener.onChangeToolbarTitle("เลือก LOT NO");
-    }
-
-    @Override
-    public void onStop() {
-        Log.d(TAG, "onPause: Clear data");
-        lot_number.clear();
-        super.onStop();
-    }
-
-    public void inidata(final View view){
-
-        Log.d(TAG, "inidata: addData");
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        Log.d(TAG, "initData: addData");
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest request = new StringRequest(Request.Method.GET,URL , new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
@@ -135,6 +118,23 @@ public class lot_Selecter extends Fragment {
             }
         });
         requestQueue.add(request);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mListener.onChangeToolbarTitle("เลือก LOT NO");
+    }
+
+    @Override
+    public void onStop() {
+        Log.d(TAG, "onPause: Clear data");
+        lot_number.clear();
+        super.onStop();
+    }
+
+    public interface OnMyFragmentListener {
+        void onChangeToolbarTitle(String title);
     }
 
     private void initRecycleView(View view) {

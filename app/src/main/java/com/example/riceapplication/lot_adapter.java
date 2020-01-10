@@ -79,6 +79,7 @@ public class lot_adapter extends RecyclerView.Adapter<lot_adapter.ViewHolder>{
                         break;
 
                     default:
+                        Log.d(TAG, "onClick: Fragment : " + mfragment);
                         Toast.makeText(mcontext,"Lot number : "+mlotnumber.get(position),Toast.LENGTH_SHORT).show();
                         bundle.putBoolean("new_lot",false);
 

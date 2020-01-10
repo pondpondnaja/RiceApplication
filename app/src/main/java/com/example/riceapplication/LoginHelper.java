@@ -19,9 +19,10 @@ public class LoginHelper {
         this.editor = sharedPerfs.edit();
     }
 
-    public void createSession(String sUserName) {
+    public void createSession(String sUserName, String sRole) {
         editor.putBoolean("LoginStatus", true);
         editor.putString("Username", sUserName);
+        editor.putString("Role", sRole);
         editor.commit();
     }
 
@@ -36,6 +37,10 @@ public class LoginHelper {
 
     public String getUserName() {
         return sharedPerfs.getString("Username", null);
+    }
+
+    public String getRole() {
+        return sharedPerfs.getString("Role", null);
     }
 
     public String getPassword() {
